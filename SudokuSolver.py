@@ -7,21 +7,23 @@ import numpy as np
 
 # Initialize the board and open the file
 board = np.empty((9,9))
-with open('board.txt') as file:
+with open("Board.txt") as file:
     board = [[int(x) for x in line.split()] for line in file]
 
 # Be able to output the board at the end
 def output_board(bo):
-    for i in range(9):
-        if i%3 == 0 and i != 0:
-            print("---------------------")
+    # for i in range(9):
+    #     if i%3 == 0 and i != 0:
+    #         print("---------------------")
         
-        for j in range(9):
-            if j%3 == 0 and j != 0:
-                print("|", end=" ")
-            print(bo[i][j], end=" ")
+    #     for j in range(9):
+    #         if j%3 == 0 and j != 0:
+    #             print("|", end=" ")
+    #         print(bo[i][j], end=" ")
 
-        print(" ")
+    #     print(" ")
+
+    np.savetxt("Output.txt", bo,"%i", " ", "\n", "Solved Sudoku Output" )
 
 # Find the next empty spot so it can be dealt with
 def find_empty(bo):
